@@ -1,5 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital@1&display=swap");
+:root {
+  --primary-color: #1f3033;
+  --secondary-color: #74a2aa;
+}
 body {
-  font-family: sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--primary-color);
+}
+h1,
+label,
+p {
+  color: var(--secondary-color);
+}
+input {
+  padding: 5px;
+  outline: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#calculate-button {
+  cursor: pointer;
+  font-weight: 400;
 }
 #form {
   display: flex;

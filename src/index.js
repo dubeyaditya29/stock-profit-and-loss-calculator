@@ -4,11 +4,20 @@ const currentPrice = document.querySelector("#current-price");
 const calculateButton = document.querySelector("#calculate-button");
 const output = document.querySelector("#out-paragraph");
 calculateButton.addEventListener("click", function calculatepercent() {
+  if (
+    initialPrice.value === "" ||
+    stockQuantity.value === "" ||
+    currentPrice.value === ""
+  ) {
+    console.log("here");
+    output.style.display = "block";
+    output.innerText = "Please dont leave any input blank!";
+  }
   let finalAmount =
     currentPrice.value * stockQuantity.value -
     initialPrice.value * stockQuantity.value;
   // no loss / proft
-  if (finalAmount === 0) {
+  if (finalAmount === 0 && initialPrice.value !== "") {
     output.style.display = "block";
     output.innerText = "There's no profit or loss!";
   }
@@ -17,7 +26,7 @@ calculateButton.addEventListener("click", function calculatepercent() {
     output.style.display = "block";
     let profit =
       (finalAmount * 100) / (initialPrice.value * stockQuantity.value);
-    console.log(profit);
+    //console.log(profit);
     output.innerText = `Congrats you made a profit of Rs.${Math.abs(
       finalAmount
     )} and your profit % is ${Math.abs(profit)}`;
